@@ -60,6 +60,14 @@ Company A — us-east-2                      Company B — us-west-2
 
 ## Results — the real test
 
+![Tunnel 1 Up, Tunnel 2 Down — one tunnel is all a Site-to-Site VPN connection needs](screenshots/tunnel-status.png)
+
+![The VPN connection, available, attached to its Virtual Private Gateway](screenshots/vpn-connection.png)
+
+![Company A's server, running in us-east-2](screenshots/company-a-instance.png)
+
+![Company B's server and VPN gateway, both running in us-west-2](screenshots/company-b-instances.png)
+
 Ping and SSH from `company-b-server` (a private server with no direct route of its own to
 Company A, routed entirely through the VPN gateway), to `company-a-server`, across the tunnel:
 
