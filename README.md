@@ -117,9 +117,14 @@ forwarded" from "packets never arrive at all."
 ## Cost
 
 Roughly **$0.08/hour** while running: the Site-to-Site VPN connection itself (~$0.05/hour,
-regardless of traffic) plus three `t3.micro` instances (~$0.03/hour combined). Checked against a
-healthy budget (under $0.02 spent of a $15–20 cap) before building. Torn down the same session —
-see below.
+regardless of traffic) plus three `t3.micro` instances (~$0.03/hour combined), for a total of
+about **$0.07** across the roughly 50 minutes this was actually up. Checked against a healthy
+budget (under $0.02 spent of a $15–20 cap) before building, and **torn down and verified the same
+session** — `terraform destroy` (26 resources), then confirmed directly against AWS in both
+regions: no VPCs beyond the defaults, no running instances, no VPN connections, no leftover
+Elastic IPs or Customer Gateways. The budget's `CalculatedSpend` still showed the pre-build figure
+right after teardown — AWS Cost Explorer data lags by about a day, so the real line-item cost for
+this session isn't visible yet, the same lag seen in this portfolio's Azure project.
 
 ## Reproduce it
 
